@@ -32,6 +32,13 @@ public class Controller {
     @FXML
     private Button savingButton;
 
+
+    @FXML
+    private Button getNameButton;
+
+    @FXML
+    private TextField userName;
+
     @FXML
     protected void initialize() {
 
@@ -45,6 +52,12 @@ public class Controller {
 
         savingButton.setOnAction(event -> {
             io.saveImage(imageView);
+        });
+
+        getNameButton.setOnAction(event -> {
+          String name = userName.getText();
+          io.setPathUserName(name);
+          io.setFullPath();
         });
 
 
