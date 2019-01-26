@@ -43,6 +43,11 @@ public class ImageOperations {
         return pictureRandomName;
     }
 
+    protected static String updatingName(){
+        fullPath = "";
+        return fullPath;
+    }
+
     //Now we know the user name! It's time to create full path for saving
     protected static String setFullPath() {
         fullPath = fullPath.concat(firstPartPath + pathUserName + secondPartPath + creatingImageName()+ ".jpg");
@@ -76,7 +81,7 @@ public class ImageOperations {
         BufferedImage endImage = SwingFXUtils.fromFXImage(buffImage, null);
         try {
             ImageIO.write(endImage, "jpg", new File(fullPath));
-        } catch (IOException e) {
+        } catch (Throwable e) {
             Alert warnAlert = new Alert(Alert.AlertType.WARNING);
             warnAlert.setHeaderText(null);
             warnAlert.setTitle("Warning!");
