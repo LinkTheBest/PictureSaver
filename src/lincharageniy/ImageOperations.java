@@ -20,21 +20,15 @@ public class ImageOperations {
 
     protected static final String firstPartPath = "C:/Users/";
     protected static final String secondPartPath = "/Downloads/";
+    protected static final String userName = System.getProperty("user.name");
     protected static String pictureRandomName = "";
     protected static String fullPath = "";
-    protected static String pathUserName = "";
-
-    //Getting users name
-    protected void setPathUserName(String pathUserName) {
-        this.pathUserName = pathUserName;
-
-    }
 
     //creating random picture name
     protected static String creatingImageName() {
         final String alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         Random random = new Random();
-        final int MAX_LENGHT = 6;
+        final int MAX_LENGHT = 9;
         StringBuilder sb = new StringBuilder(MAX_LENGHT);
         for (int i = 0; i < MAX_LENGHT; i++) {
             sb.append(alphabet.charAt(random.nextInt(alphabet.length())));
@@ -42,7 +36,7 @@ public class ImageOperations {
         pictureRandomName = sb.toString();
         return pictureRandomName;
     }
-
+    //Setting fullPath to null, because we need to create new name every time for the new image
     protected static String updatingName(){
         fullPath = "";
         return fullPath;
@@ -50,7 +44,7 @@ public class ImageOperations {
 
     //Now we know the user name! It's time to create full path for saving
     protected static String setFullPath() {
-        fullPath = fullPath.concat(firstPartPath + pathUserName + secondPartPath + creatingImageName()+ ".jpg");
+        fullPath = fullPath.concat(firstPartPath + userName + secondPartPath + creatingImageName()+ ".jpg");
         System.out.println(fullPath);
         return fullPath;
     }
@@ -66,13 +60,14 @@ public class ImageOperations {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText(null);
             alert.setContentText("Enter valid url!");
+            alert.show();
         }
     }
 
     // cleaning area (except users name)
     protected static void cleanArea(TextField url, ImageView imageView) {
-        url.setText(null);
-        imageView.setImage(null);
+            url.setText(null);
+            imageView.setImage(null);
     }
 
     //Saving image
@@ -86,6 +81,7 @@ public class ImageOperations {
             warnAlert.setHeaderText(null);
             warnAlert.setTitle("Warning!");
             warnAlert.setHeaderText("IncorrectImage or filepath");
+            warnAlert.show();
         }
 
 

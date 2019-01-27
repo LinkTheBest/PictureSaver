@@ -2,6 +2,7 @@ package lincharageniy;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -34,12 +35,6 @@ public class Controller {
 
 
     @FXML
-    private Button getNameButton;
-
-    @FXML
-    private TextField userName;
-
-    @FXML
     protected void initialize() {
 
         viewButton.setOnAction(event -> {
@@ -48,18 +43,15 @@ public class Controller {
 
         cleanButton.setOnAction(event -> {
             io.cleanArea(urlFIeld, imageView);
+
         });
 
         savingButton.setOnAction(event -> {
+            io.creatingImageName();
+            io.setFullPath();
             io.saveImage(imageView);
+            io.updatingName();
         });
-
-        getNameButton.setOnAction(event -> {
-          String name = userName.getText();
-          io.setPathUserName(name);
-          io.setFullPath();
-        });
-
 
 
     }
