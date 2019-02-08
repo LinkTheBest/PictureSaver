@@ -1,4 +1,4 @@
-package lincharageniy;
+package com.vk.lincharageniy;
 
 
 import javafx.embed.swing.SwingFXUtils;

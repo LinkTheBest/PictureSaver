@@ -1,4 +1,4 @@
-package lincharageniy;
+package com.vk.lincharageniy;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +15,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
         primaryStage.setTitle("PicSav");
-        primaryStage.getIcons().setAll(new Image("lincharageniy/res/home-icon.png"));
+        primaryStage.getIcons().setAll(new Image("com/vk/lincharageniy/res/home-icon.png"));
         primaryStage.setScene(new Scene(root, 640, 480));
         primaryStage.show();
     }

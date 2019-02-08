@@ -1,4 +1,4 @@
-package lincharageniy;
+package com.vk.lincharageniy;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -7,10 +7,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 
 public class Controller {
 
     private ImageOperations io = new ImageOperations();
+    private Web web = new Web();
+
 
     @FXML
     private ResourceBundle resources;
@@ -33,6 +37,9 @@ public class Controller {
     @FXML
     private Button savingButton;
 
+    @FXML
+    private Button webButton;
+
 
     @FXML
     protected void initialize() {
@@ -52,6 +59,12 @@ public class Controller {
             io.saveImage(imageView);
             io.updatingName();
         });
+
+        webButton.setOnAction(event -> {
+            web.webWindow();
+        });
+
+
 
 
     }
