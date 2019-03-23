@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -36,16 +37,17 @@ public class ImageOperations {
         pictureRandomName = sb.toString();
         return pictureRandomName;
     }
+
     //Setting fullPath to null, because we need to create new name every time for the new image
-    protected static String updatingName(){
+    protected static String updatingName() {
         fullPath = "";
         return fullPath;
     }
 
     //Now we know the user name! It's time to create full path for saving
     protected static String setFullPath() {
-        fullPath = fullPath.concat(firstPartPath + userName + secondPartPath + creatingImageName()+ ".jpg");
-        System.out.println(fullPath);
+        fullPath = fullPath.concat(firstPartPath + userName + secondPartPath + creatingImageName() + ".jpg");
+        //System.out.println(fullPath);
         return fullPath;
     }
 
@@ -66,8 +68,8 @@ public class ImageOperations {
 
     // cleaning area (except users name)
     protected static void cleanArea(TextField url, ImageView imageView) {
-            url.setText(null);
-            imageView.setImage(null);
+        url.setText(null);
+        imageView.setImage(null);
     }
 
     //Saving image
@@ -85,6 +87,34 @@ public class ImageOperations {
         }
 
 
+    }
+
+    // new function which checks if image resolution matches ur screen resolution
+    protected static int checkDimension(ImageView imageView) {
+
+        Dimension screen_size = Toolkit.getDefaultToolkit().getScreenSize();
+        int vert = screen_size.height;
+        int hor = screen_size.width;
+
+        BufferedImage buff_image;
+        int image_height = 0;
+        int image_width = 0;
+
+        try {
+            Image temp_image = imageView.getImage();
+            buff_image = SwingFXUtils.fromFXImage(temp_image, null);
+            image_height = buff_image.getHeight();
+            image_width = buff_image.getWidth();
+        } catch (Exception e) {
+        }
+
+        if ((vert <= image_height) && (hor <= image_width)) {
+            System.out.println(1);
+            return 1;
+        } else
+            System.out.println(0);
+
+        return 0;
     }
 }
 

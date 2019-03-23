@@ -46,10 +46,12 @@ public class Controller {
 
         viewButton.setOnAction(event -> {
             io.viewNetImage(urlFIeld.getText(), imageView);
+            io.checkDimension(imageView);
         });
 
         cleanButton.setOnAction(event -> {
             io.cleanArea(urlFIeld, imageView);
+
 
         });
 
