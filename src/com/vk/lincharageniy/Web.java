@@ -1,6 +1,7 @@
 package com.vk.lincharageniy;
 
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -13,7 +14,7 @@ public class Web {
 
         // New window (Stage)
         Stage windows = new Stage();
-        windows.getIcons().setAll();
+        windows.getIcons().setAll(new Image("com/vk/lincharageniy/res/Internet-web-browser.png"));
         windows.setTitle("WebView");
         windows.setScene(webScene);
         windows.show();
