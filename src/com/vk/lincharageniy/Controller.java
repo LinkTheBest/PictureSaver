@@ -61,7 +61,7 @@ public class Controller {
         });
 
         webButton.setOnAction(event -> {
-            web.webWindow();
+            web.webWindow(urlFIeld.getText());
         });
 
 
