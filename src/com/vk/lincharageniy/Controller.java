@@ -40,6 +40,9 @@ public class Controller {
     @FXML
     private Button webButton;
 
+    @FXML
+    private Button set_as_wallpaper;
+
 
     @FXML
     protected void initialize() {
@@ -66,7 +69,10 @@ public class Controller {
             web.webWindow(urlFIeld.getText());
         });
 
+        set_as_wallpaper.setOnAction(event -> {
+            io.setWallpaper(urlFIeld.getText());
 
+        });
 
 
     }

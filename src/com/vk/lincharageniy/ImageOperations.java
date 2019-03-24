@@ -24,6 +24,7 @@ public class ImageOperations {
     protected static final String userName = System.getProperty("user.name");
     protected static String pictureRandomName = "";
     protected static String fullPath = "";
+    private static boolean flag;
 
     //creating random picture name
     protected static String creatingImageName() {
@@ -90,7 +91,7 @@ public class ImageOperations {
     }
 
     // new function which checks if image resolution matches ur screen resolution
-    protected static int checkDimension(ImageView imageView) {
+    protected static void checkDimension(ImageView imageView) {
 
         Dimension screen_size = Toolkit.getDefaultToolkit().getScreenSize();
         int vert = screen_size.height;
@@ -109,13 +110,31 @@ public class ImageOperations {
         }
 
         if ((vert <= image_height) && (hor <= image_width)) {
-            System.out.println(1);
-            return 1;
-        } else
-            System.out.println(0);
-
-        return 0;
+            flag = true;
+        } else {
+            flag = false;
+        }
     }
+
+    // setting wallpaper
+    protected static void setWallpaper(String url) {
+
+        // check if picture dimension matches ur screen dimension
+        if (flag) {
+            System.out.println(1);
+            WallpaperSetter wallpaper_setter = new WallpaperSetter();
+            wallpaper_setter.setWallpaper(url);
+        } else {
+             Alert alert = new Alert(Alert.AlertType.WARNING);
+             alert.setContentText("Picture dimension does not match your screeen dimension!");
+             alert.setHeaderText("Warning!");
+             alert.showAndWait();
+
+        }
+
+    }
+
+
 }
 
 

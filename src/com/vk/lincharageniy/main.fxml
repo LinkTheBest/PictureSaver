@@ -11,13 +11,14 @@
 <?import javafx.scene.control.Label?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #ADFF2F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vk.lincharageniy.Controller">
-   <children>
-      <TextField fx:id="urlFIeld" layoutX="96.0" layoutY="14.0" prefHeight="25.0" prefWidth="182.0" promptText="right here..." />
-      <Label layoutX="14.0" layoutY="18.0" text="Enter URL here:" />
-      <Button fx:id="viewButton" layoutX="285.0" layoutY="14.0" mnemonicParsing="false" text="View" />
-      <Button fx:id="cleanButton" layoutX="333.0" layoutY="14.0" mnemonicParsing="false" text="Clean" />
-      <ImageView fx:id="imageView" fitHeight="428.0" fitWidth="631.0" layoutX="4.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="savingButton" layoutX="385.0" layoutY="14.0" mnemonicParsing="false" text="Save" />
-      <Button fx:id="webButton" layoutX="475.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="open in WEB" />
-   </children>
+    <children>
+        <TextField fx:id="urlFIeld" layoutX="96.0" layoutY="14.0" prefHeight="25.0" prefWidth="182.0" promptText="right here..." />
+        <Label layoutX="14.0" layoutY="18.0" text="Enter URL here:" />
+        <Button fx:id="viewButton" layoutX="285.0" layoutY="14.0" mnemonicParsing="false" text="View" />
+        <Button fx:id="cleanButton" layoutX="333.0" layoutY="14.0" mnemonicParsing="false" text="Clean" />
+        <ImageView fx:id="imageView" fitHeight="428.0" fitWidth="631.0" layoutX="4.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" />
+        <Button fx:id="savingButton" layoutX="385.0" layoutY="14.0" mnemonicParsing="false" text="Save" />
+        <Button fx:id="webButton" layoutX="538.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="open in WEB" />
+      <Button fx:id="set_as_wallpaper" layoutX="438.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Set as Wallpaper" />
+    </children>
 </AnchorPane>

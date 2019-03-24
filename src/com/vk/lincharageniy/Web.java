@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 public class Web {
 
-    protected  void webWindow(String url){
+    protected void webWindow(String url) {
 
         // creating a "browser"
         WebView web_page = new WebView();
