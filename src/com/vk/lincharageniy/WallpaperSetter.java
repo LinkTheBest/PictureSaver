@@ -35,7 +35,7 @@ public class WallpaperSetter {
     public static void setWallpaper(String image_path) {
 
         String path = image_path;
-        //path = "C:\\Users\\Nikitka\\Downloads\\rY5wN2XYz.jpg";
+
         System.out.println(path);
 
         if (path.equals("")) {

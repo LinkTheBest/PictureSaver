@@ -22,6 +22,7 @@ public class ImageOperations {
     protected static final String firstPartPath = "C:\\Users\\";
     protected static final String secondPartPath = "\\Downloads\\";
     protected static final String userName = System.getProperty("user.name");
+    protected static String path_for_desktop = "";
     protected static String pictureRandomName = "";
     protected static String fullPath = "";
     private static boolean flag;
@@ -48,6 +49,7 @@ public class ImageOperations {
     //Now we know the user name! It's time to create full path for saving
     protected static String setFullPath() {
         fullPath = fullPath.concat(firstPartPath + userName + secondPartPath + creatingImageName() + ".jpg");
+        path_for_desktop = fullPath;
         //System.out.println(fullPath);
         return fullPath;
     }
@@ -115,22 +117,15 @@ public class ImageOperations {
             flag = false;
         }
 
-        System.out.println(image_height);
-        System.out.println(image_width);
-        System.out.println("==========");
-        System.out.println(vert);
-        System.out.println(hor);
-        System.out.println("==========");
-        System.out.println(vert <= image_height);
     }
 
 
     protected static void setWallpaper() {
 
         // check if picture dimension matches ur screen dimension
-        if (true) {
+        if (flag) {
             WallpaperSetter wallpaper_setter = new WallpaperSetter();
-            wallpaper_setter.setWallpaper(setFullPath());
+            wallpaper_setter.setWallpaper(path_for_desktop);
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setContentText("Picture dimension does not match your screeen dimension!");
