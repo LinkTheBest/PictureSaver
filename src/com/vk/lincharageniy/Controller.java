@@ -70,7 +70,7 @@ public class Controller {
         });
 
         set_as_wallpaper.setOnAction(event -> {
-            io.setWallpaper(urlFIeld.getText());
+            io.setWallpaper();
 
         });
 

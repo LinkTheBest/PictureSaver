@@ -1,9 +1,11 @@
 package com.vk.lincharageniy;
 
 import com.sun.jna.Native;
-        import com.sun.jna.platform.win32.WinDef.UINT_PTR;
-        import com.sun.jna.win32.*;
-        import java.util.HashMap;
+import com.sun.jna.platform.win32.WinDef.UINT_PTR;
+import com.sun.jna.win32.*;
+import javafx.scene.control.Alert;
+
+import java.util.HashMap;
 
 public class WallpaperSetter {
 
@@ -30,15 +32,27 @@ public class WallpaperSetter {
         );
     }
 
-    public static void setWallpaper() {
-       String path = "C:\\Users\\Nikitka\\Downloads\\Y8clX863V.jpg";
+    public static void setWallpaper(String image_path) {
 
+        String path = image_path;
+        //path = "C:\\Users\\Nikitka\\Downloads\\rY5wN2XYz.jpg";
+        System.out.println(path);
 
-        SPI.INSTANCE.SystemParametersInfo(
-                new UINT_PTR(SPI.SPI_SETDESKWALLPAPER),
-                new UINT_PTR(0),
-                path,
-                new UINT_PTR(SPI.SPIF_UPDATEINIFILE | SPI.SPIF_SENDWININICHANGE));
+        if (path.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("WARNING!");
+            alert.setContentText("You did not save image!");
+            alert.showAndWait();
+
+        } else {
+            SPI.INSTANCE.SystemParametersInfo(
+                    new UINT_PTR(SPI.SPI_SETDESKWALLPAPER),
+                    new UINT_PTR(0),
+                    path,
+                    new UINT_PTR(SPI.SPIF_UPDATEINIFILE | SPI.SPIF_SENDWININICHANGE));
+
+        }
+
 
     }
 

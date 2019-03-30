@@ -19,8 +19,8 @@ import java.util.Random;
 public class ImageOperations {
 
 
-    protected static final String firstPartPath = "C:/Users/";
-    protected static final String secondPartPath = "/Downloads/";
+    protected static final String firstPartPath = "C:\\Users\\";
+    protected static final String secondPartPath = "\\Downloads\\";
     protected static final String userName = System.getProperty("user.name");
     protected static String pictureRandomName = "";
     protected static String fullPath = "";
@@ -114,21 +114,28 @@ public class ImageOperations {
         } else {
             flag = false;
         }
+
+        System.out.println(image_height);
+        System.out.println(image_width);
+        System.out.println("==========");
+        System.out.println(vert);
+        System.out.println(hor);
+        System.out.println("==========");
+        System.out.println(vert <= image_height);
     }
 
-    // setting wallpaper
-    protected static void setWallpaper(String url) {
+
+    protected static void setWallpaper() {
 
         // check if picture dimension matches ur screen dimension
-        if (flag) {
-            System.out.println(1);
+        if (true) {
             WallpaperSetter wallpaper_setter = new WallpaperSetter();
-            wallpaper_setter.setWallpaper(url);
+            wallpaper_setter.setWallpaper(setFullPath());
         } else {
-             Alert alert = new Alert(Alert.AlertType.WARNING);
-             alert.setContentText("Picture dimension does not match your screeen dimension!");
-             alert.setHeaderText("Warning!");
-             alert.showAndWait();
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("Picture dimension does not match your screeen dimension!");
+            alert.setHeaderText("Warning!");
+            alert.showAndWait();
 
         }
 
