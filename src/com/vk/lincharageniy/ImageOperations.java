@@ -19,9 +19,9 @@ import java.util.Random;
 public class ImageOperations {
 
 
-    protected static final String firstPartPath = "C:\\Users\\";
-    protected static final String secondPartPath = "\\Downloads\\";
-    protected static final String userName = System.getProperty("user.name");
+    protected static final String firstPartPath = "C:\\Users\\" + System.getProperty("user.name") + "\\Downloads\\";
+    //protected static final String secondPartPath = "\\Downloads\\";
+    //protected static final String userName = System.getProperty("user.name");
     protected static String path_for_desktop = "";
     protected static String pictureRandomName = "";
     protected static String fullPath = "";
@@ -43,12 +43,13 @@ public class ImageOperations {
     //Setting fullPath to null, because we need to create new name every time for the new image
     protected static String updatingName() {
         fullPath = "";
+        path_for_desktop = "";
         return fullPath;
     }
 
-    //Now we know the user name! It's time to create full path for saving
+    // It's time to create full path for saving
     protected static String setFullPath() {
-        fullPath = fullPath.concat(firstPartPath + userName + secondPartPath + creatingImageName() + ".jpg");
+        fullPath = fullPath.concat(firstPartPath + creatingImageName() + ".jpg");
         path_for_desktop = fullPath;
         //System.out.println(fullPath);
         return fullPath;
