@@ -1,4 +1,4 @@
-package com.vk.lincharageniy;
+package com.vk.lincharageniy.main.classes;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -7,8 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
 
 public class Controller {
 

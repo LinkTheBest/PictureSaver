@@ -1,4 +1,4 @@
-package com.vk.lincharageniy;
+package com.vk.lincharageniy.jna.libs.code;
 
 import com.sun.jna.Native;
 import com.sun.jna.platform.win32.WinDef.UINT_PTR;
@@ -16,7 +16,6 @@ public class WallpaperSetter {
         long SPIF_UPDATEINIFILE = 0x01;
         long SPIF_SENDWININICHANGE = 0x02;
 
-        //Here is the problem
         SPI INSTANCE = (SPI) Native.loadLibrary("user32", SPI.class, new HashMap<String, Object>() {
             {
                 put(OPTION_TYPE_MAPPER, W32APITypeMapper.UNICODE);
@@ -36,7 +35,7 @@ public class WallpaperSetter {
 
         String path = image_path;
 
-        System.out.println(path);
+        //System.out.println(path);
 
         if (path.equals("")) {
             Alert alert = new Alert(Alert.AlertType.WARNING);

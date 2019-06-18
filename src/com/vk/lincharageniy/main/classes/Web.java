@@ -1,4 +1,4 @@
-package com.vk.lincharageniy;
+package com.vk.lincharageniy.main.classes;
 
 import javafx.scene.Scene;
 import javafx.scene.image.Image;

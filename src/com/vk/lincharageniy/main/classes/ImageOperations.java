@@ -1,18 +1,17 @@
-package com.vk.lincharageniy;
+package com.vk.lincharageniy.main.classes;
 
 
+import com.vk.lincharageniy.jna.libs.code.WallpaperSetter;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.util.Random;
 
 
