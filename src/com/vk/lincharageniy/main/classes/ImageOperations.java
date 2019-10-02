@@ -1,24 +1,22 @@
 package com.vk.lincharageniy.main.classes;
 
-
 import com.vk.lincharageniy.jna.libs.code.WallpaperSetter;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.Random;
 
-
 public class ImageOperations {
 
 
     protected static final String firstPartPath = "C:\\Users\\" + System.getProperty("user.name") + "\\Downloads\\";
+    protected static String os_name = System.getProperty("os.name");
     //protected static final String secondPartPath = "\\Downloads\\";
     //protected static final String userName = System.getProperty("user.name");
     protected static String path_for_desktop = "";
@@ -77,6 +75,25 @@ public class ImageOperations {
 
     //Saving image
     protected static void saveImage(ImageView imageView) {
+
+        if(os_name.startsWith("Mac")){
+
+            String mac_path = "/Users/" + System.getProperty("user.name") + "/downloads/" + creatingImageName() + ".jpg";
+
+            Image buffImage = imageView.getImage();
+            BufferedImage endImage = SwingFXUtils.fromFXImage(buffImage, null);
+            try {
+                ImageIO.write(endImage, "jpg", new File(mac_path));
+            } catch (Throwable e) {
+                Alert warnAlert = new Alert(Alert.AlertType.WARNING);
+                warnAlert.setHeaderText(null);
+                warnAlert.setTitle("Warning!");
+                warnAlert.setHeaderText("IncorrectImage or filepath");
+                warnAlert.show();
+            }
+
+        }
+
         Image buffImage = imageView.getImage();
         BufferedImage endImage = SwingFXUtils.fromFXImage(buffImage, null);
         try {
@@ -120,7 +137,31 @@ public class ImageOperations {
     }
 
 
-    protected static void setWallpaper() {
+    protected static void setWallpaper(){
+
+        try {
+            if (os_name.startsWith("Mac")) {
+
+                String as[] = {
+                        "osascript",
+                        "-e", "tell application \"Finder\"",
+                        "-e", "set desktop picture to POSIX file \"" + path_for_desktop + "\"",
+                        "-e", "end tell"
+                };
+                Runtime runtime = Runtime.getRuntime();
+                Process process;
+                process = runtime.exec(as);
+
+
+            }
+        }catch (Exception ex){
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("Picture dimension does not match your screeen dimension!");
+            alert.setHeaderText("Warning!");
+            alert.showAndWait();
+
+        }
 
         // check if picture dimension matches ur screen dimension
         if (flag) {
