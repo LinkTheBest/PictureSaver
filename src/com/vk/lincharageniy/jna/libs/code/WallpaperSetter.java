@@ -31,13 +31,13 @@ public class WallpaperSetter {
         );
     }
 
-    public static void setWallpaper(String image_path) {
+    public static void setWallpaper(String image_path, String os_name) {
 
         String path = image_path;
 
         //System.out.println(path);
 
-        if (path.equals("")) {
+        if (path.equals("") && (os_name.equals("Windows"))) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText("WARNING!");
             alert.setContentText("You did not save image!");

@@ -6,6 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -17,8 +18,7 @@ public class ImageOperations {
 
     protected static final String firstPartPath = "C:\\Users\\" + System.getProperty("user.name") + "\\Downloads\\";
     protected static String os_name = System.getProperty("os.name");
-    //protected static final String secondPartPath = "\\Downloads\\";
-    //protected static final String userName = System.getProperty("user.name");
+    protected static String mac_path;
     protected static String path_for_desktop = "";
     protected static String pictureRandomName = "";
     protected static String fullPath = "";
@@ -37,7 +37,7 @@ public class ImageOperations {
         return pictureRandomName;
     }
 
-    //Setting fullPath to null, because we need to create new name every time for the new image
+    //Updating the name String
     protected static String updatingName() {
         fullPath = "";
         path_for_desktop = "";
@@ -48,7 +48,6 @@ public class ImageOperations {
     protected static String setFullPath() {
         fullPath = fullPath.concat(firstPartPath + creatingImageName() + ".jpg");
         path_for_desktop = fullPath;
-        //System.out.println(fullPath);
         return fullPath;
     }
 
@@ -76,9 +75,9 @@ public class ImageOperations {
     //Saving image
     protected static void saveImage(ImageView imageView) {
 
-        if(os_name.startsWith("Mac")){
+        if (os_name.startsWith("Mac")) {
 
-            String mac_path = "/Users/" + System.getProperty("user.name") + "/downloads/" + creatingImageName() + ".jpg";
+             mac_path = "/Users/" + System.getProperty("user.name") + "/downloads/" + creatingImageName() + ".jpg";
 
             Image buffImage = imageView.getImage();
             BufferedImage endImage = SwingFXUtils.fromFXImage(buffImage, null);
@@ -137,7 +136,7 @@ public class ImageOperations {
     }
 
 
-    protected static void setWallpaper(){
+    protected static void setWallpaper() {
 
         try {
             if (os_name.startsWith("Mac")) {
@@ -145,7 +144,7 @@ public class ImageOperations {
                 String as[] = {
                         "osascript",
                         "-e", "tell application \"Finder\"",
-                        "-e", "set desktop picture to POSIX file \"" + path_for_desktop + "\"",
+                        "-e", "set desktop picture to POSIX file \"" + mac_path + "\"",
                         "-e", "end tell"
                 };
                 Runtime runtime = Runtime.getRuntime();
@@ -154,7 +153,7 @@ public class ImageOperations {
 
 
             }
-        }catch (Exception ex){
+        } catch (Exception ex) {
 
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setContentText("Picture dimension does not match your screeen dimension!");
@@ -166,7 +165,7 @@ public class ImageOperations {
         // check if picture dimension matches ur screen dimension
         if (flag) {
             WallpaperSetter wallpaper_setter = new WallpaperSetter();
-            wallpaper_setter.setWallpaper(path_for_desktop);
+            wallpaper_setter.setWallpaper(path_for_desktop, os_name);
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setContentText("Picture dimension does not match your screeen dimension!");
